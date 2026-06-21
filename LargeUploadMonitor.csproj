@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <!--
+      Self-contained + single file = one .exe shipped to each endpoint.
+      No .NET runtime install needed on target machines.
+    -->
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <PublishTrimmed>false</PublishTrimmed>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>LargeUploadMonitor</AssemblyName>
+    <RootNamespace>LargeUploadMonitor</RootNamespace>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Windows service host -->
+    <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="8.0.0" />
+    <!-- ETW wrapper — this is the SAME library Microsoft Sysmon and PerfView use -->
+    <PackageReference Include="Microsoft.Diagnostics.Tracing.TraceEvent"    Version="3.1.7" />
+  </ItemGroup>
+
+</Project>
