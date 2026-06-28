@@ -44,7 +44,7 @@ This is a from-scratch C# rewrite of a previous Python polling-based detector. I
       └────────┬─────────┘                   └─────────┬─────────┘
                │                                       │
                └─────────────────┐      ┌──────────────┘
-                                  ▼      ▼
+                                 ▼      ▼
                          ┌───────────────────────┐
                          │ AlertCheckLoop (5s)   │
                          │ – sums bytes/window   │
