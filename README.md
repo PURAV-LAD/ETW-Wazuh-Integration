@@ -35,15 +35,15 @@ This is a from-scratch C# rewrite of a previous Python polling-based detector. I
  │  Kernel-File provider     │        │  Kernel-Network provider   │
  │  (FileIOCreate)           │        │  (TcpIpSend / V6)          │
  └─────────────┬─────────────┘        └──────────────┬─────────────┘
-               │ process, path, size                  │ pid, bytes, dest
-               ▼                                       ▼
+               │ process, path, size                 │ pid, bytes, dest
+               ▼                                     ▼
       ┌──────────────────┐                   ┌───────────────────┐
       │ _filesByProc     │                   │ _net              │
       │ keyed by PROCESS │                   │ keyed by PID      │
       │ NAME             │                   │                   │
       └────────┬─────────┘                   └─────────┬─────────┘
-               │                                          │
-               └─────────────────┐      ┌─────────────────┘
+               │                                       │
+               └─────────────────┐      ┌──────────────┘
                                   ▼      ▼
                          ┌───────────────────────┐
                          │ AlertCheckLoop (5s)   │
